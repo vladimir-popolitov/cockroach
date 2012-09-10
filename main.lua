@@ -4,21 +4,21 @@
 --
 -----------------------------------------------------------------------------------------
 
--- Your code here
+-- самый главный модуль
 
 -- SOME INITIAL SETTINGS
-display.setStatusBar( display.HiddenStatusBar ) --Hide status bar from the beginning
+display.setStatusBar( display.HiddenStatusBar ) --прячем статус бар устройства
 
--- Import director class
+-- загружаем модуль директора
 local director = require("director")
 
--- Create a main group
+-- создаем самую главную группу в приложении
 local mainGroup = display.newGroup()
 
 -- Main function
 local function main()
 	
-	-- Add the group from director class
+	-- директора добавляем в главную группу
 	mainGroup:insert(director.directorView)
 	
 	-- Uncomment below code and replace init() arguments with valid ones to enable openfeint
@@ -27,6 +27,7 @@ local function main()
 	openfeint.init( "App Key Here", "App Secret Here", "Ghosts vs. Monsters", "App ID Here" )
 	]]--
 	
+	-- выводим первую сцену - экран с надписью "загрузка". второй параметр - эффект, с которым появляется эта сцена
 	director:changeScene( "loadmainmenu", "overFromRight" )
 	
 	return true
